@@ -1,8 +1,8 @@
 #!/bin/bash
 
-NUM_GPU=2
-export OMP_NUM_THREADS=4
-export CUDA_VISIBLE_DEVICES=0,1
+NUM_GPU=1
+export OMP_NUM_THREADS=8
+export CUDA_VISIBLE_DEVICES=1
 
 # template for bert, originate from PromptBERT
 TEMPLATE="*cls*_This_sentence_of_\"*sent_0*\"_means*mask*.*sep+*"

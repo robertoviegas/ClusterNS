@@ -1,8 +1,8 @@
 #!/bin/bash
 
-NUM_GPU=2
-export OMP_NUM_THREADS=4
-export CUDA_VISIBLE_DEVICES=2,3
+NUM_GPU=1
+export OMP_NUM_THREADS=8
+export CUDA_VISIBLE_DEVICES=1
 
 python -m torch.distributed.launch --nproc_per_node $NUM_GPU --master_port 10492 train.py \
     --model_name_or_path roberta-base \
