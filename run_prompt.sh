@@ -12,7 +12,7 @@ TEMPLATE2="*cls*_This_sentence_:_\"*sent_0*\"_means*mask*.*sep+*"
 TEMPLATE="*cls*_This_sentence_:_'_*sent_0*_'_means*mask*.*sep+*"
 TEMPLATE2="*cls*_The_sentence_:_'_*sent_0*_'_means*mask*.*sep+*"
 
-python -m torch.distributed.launch --nproc_per_node $NUM_GPU train_prompt.py \
+python3 -m torch.distributed.launch --nproc_per_node $NUM_GPU train_prompt.py \
     --model_name_or_path bert-base-uncased \
     --train_file data/wiki1m_for_simcse.txt \
     --output_dir result/ClusterNS-prmt-bert-base \
@@ -44,7 +44,7 @@ python -m torch.distributed.launch --nproc_per_node $NUM_GPU train_prompt.py \
     --early_stop 3 \
     "$@"
 
-python evaluation_prompt.py \
+python3 evaluation_prompt.py \
 --model_name_or_path result/ClusterNS-prmt-bert-base \
 --pooler avg \
 --task_set sts \
